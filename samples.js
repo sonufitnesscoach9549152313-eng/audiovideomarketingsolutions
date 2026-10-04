@@ -7,8 +7,18 @@ const AUDIO=[
  {t:"Audio Sample 2", c:"Advertisement", src:"assets/audio/audio-sample-2.mp3", dur:"5:48"}
 ];
 
-/* VIDEO: ya to src:"assets/video/x.mp4" (25 MB se chhota) ya YouTube id yt:"abc123XYZ".
-   thumb:"assets/video/x.jpg" optional. */
+/* SOCIAL: apne pages ke link. Facebook ka link yahan paste karo (khaali ho to search khulega). */
+const SOCIAL={
+ instagram:"https://www.instagram.com/audiovideomarketing/",
+ youtube:"https://www.youtube.com/@audio-videomarketingsoluti9332",
+ facebook:"https://www.facebook.com/share/1PyXEDWPHU/"
+};
+
+/* VIDEO: 3 tareeke:
+   1) YouTube: yt:"YouTube ka poora link" (normal ya Shorts dono chalte hain) - thumbnail apne aap aayega,
+      video site ke andar hi chalega, YouTube kholne ki zaroorat nahi.
+   2) File: src:"assets/video/x.mp4" (25 MB se chhota), thumb:"assets/video/x.jpg" (cover).
+   Example: {t:"Naya Ad", c:"Advertisement", yt:"https://youtube.com/watch?v=XXXXXXXXXXX", dur:"0:30"}, */
 const VIDEO=[
  {t:"Saree & Fashion Ad",       c:"Advertisement", src:"assets/video/saree-fashion-ad.mp4",       thumb:"assets/video/saree-fashion-ad.jpg",       dur:"0:41"},
  {t:"Saree Shop Promo",         c:"Business",      src:"assets/video/saree-shop-promo.mp4",       thumb:"assets/video/saree-shop-promo.jpg",       dur:"0:40"},
