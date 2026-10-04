@@ -7,6 +7,17 @@ const AUDIO=[
  {t:"Audio Sample 2", c:"Advertisement", src:"assets/audio/audio-sample-2.mp3", dur:"5:48"}
 ];
 
+/* MAP: website par live Google map (zoom + move hota hai).
+   query = address jo map par dhoondhna hai, type = "h" (satellite+naam) ya "m" (normal map), zoom = 1 se 20.
+   Pin galat jagah dikhe to exact map ka link embed:"..." mein paste karo
+   (Google Maps > apna business > Share > Embed a map > HTML mein src="..." ke andar ka link). */
+const MAP={
+ query:"Audio Video Marketing Solutions, Alok CD Wali Gali, Railway Station Road, near Fagalwa Petrol Pump, Sikar, Rajasthan 332001",
+ type:"h", zoom:16, embed:""
+};
+/* Directions button: khaali rakho to upar wale address ko Google Maps mein directions ke saath kholta hai. */
+const DIRECTIONS="";
+
 /* SOCIAL: apne pages ke link. Facebook ka link yahan paste karo (khaali ho to search khulega). */
 const SOCIAL={
  instagram:"https://www.instagram.com/audiovideomarketing/",
