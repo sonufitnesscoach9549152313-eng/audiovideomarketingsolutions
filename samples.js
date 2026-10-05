@@ -25,16 +25,66 @@ const SOCIAL={
  facebook:"https://www.facebook.com/share/1PyXEDWPHU/"
 };
 
-/* VIDEO: 3 tareeke:
-   1) YouTube: yt:"YouTube ka poora link" (normal ya Shorts dono chalte hain) - thumbnail apne aap aayega,
-      video site ke andar hi chalega, YouTube kholne ki zaroorat nahi.
-   2) File: src:"assets/video/x.mp4" (25 MB se chhota), thumb:"assets/video/x.jpg" (cover).
-   Example: {t:"Naya Ad", c:"Advertisement", yt:"https://youtube.com/watch?v=XXXXXXXXXXX", dur:"0:30"}, */
-const VIDEO=[
- {t:"Saree & Fashion Ad",       c:"Advertisement", src:"assets/video/saree-fashion-ad.mp4",       thumb:"assets/video/saree-fashion-ad.jpg",       dur:"0:41"},
- {t:"Saree Shop Promo",         c:"Business",      src:"assets/video/saree-shop-promo.mp4",       thumb:"assets/video/saree-shop-promo.jpg",       dur:"0:40"},
- {t:"Audio Visual Education",   c:"Advertisement", src:"assets/video/audio-visual-education.mp4", thumb:"assets/video/audio-visual-education.jpg", dur:"2:09"},
- {t:"Shop Business Promo",      c:"Business",      src:"assets/video/shop-business-promo.mp4",    thumb:"assets/video/shop-business-promo.jpg",    dur:"0:37"}
+/* VIDEO CATEGORIES: har category mein pehla video site par dikhta hai, baaki "See more" dabane par.
+   Naya video: us category ki list mein ek nayi line:  {yt:"YouTube ka poora link", t:"Naam", d:"Neeche dikhne wali line"},
+   Category ka order upar se neeche wahi rahega jo yahan likha hai. Naya category = naya {name:..., videos:[...]} block. */
+const VIDEO_CATEGORIES=[
+ {name:"Election Campaign", videos:[
+  {yt:"GyhcPUiF0UU", t:"Sarpanch Election Campaign", d:"AI presenter explains the development work done in the gram panchayat and asks voters to elect the same sarpanch again."},
+  {yt:"_PY5IoyPm44", t:"Election Campaign Video", d:"AI video for an election campaign."},
+  {yt:"tNTbCYmO24Y", t:"Election Campaign Video 2", d:"Election campaign video."},
+  {yt:"tSodv21W8L8", t:"Election Campaign Video 3", d:"Election campaign video."}
+ ]},
+ {name:"Audio Video Marketing Solutions Ads", videos:[
+  {yt:"9Qg8NfckZ2w", t:"Our Offers & Services", d:"Our own ad: the offers we have and the services we provide, and who they are for."},
+  {yt:"_cHChVDCiGQ", t:"Our Promo 1", d:"Promotion video of Audio Video Marketing Solutions."},
+  {yt:"VlRGJsr7-l8", t:"Our Promo 2", d:"Promotion video of Audio Video Marketing Solutions."},
+  {yt:"cqaWSNMTwL4", t:"Our Ad 1", d:"Our own ad for Audio Video Marketing Solutions."},
+  {yt:"rcxaTtFacJU", t:"Our Ad 2", d:"Our own ad for Audio Video Marketing Solutions."},
+  {yt:"AVXq94VcWHM", t:"Our Ad 3", d:"Our own ad for Audio Video Marketing Solutions."}
+ ]},
+ {name:"Mela & Festival", videos:[
+  {yt:"NOrUvHXfHi0", t:"Mela Promotion (AI Presenter)", d:"AI presenter tells about the mela, where it is held and the rides and attractions."},
+  {yt:"HGFpudGWa_Y", t:"Festival Mela Promotion", d:"Promotion video for a festival mela."},
+  {yt:"S3UmfzHF6UY", t:"Mela Promotion", d:"Promotion video for a mela."},
+  {yt:"In4GREKY1z4", t:"Mela Promotion 2", d:"Promotion video for a mela."}
+ ]},
+ {name:"Shops & Stores", videos:[
+  {yt:"suh_f03E84w", t:"Mobile Store Offers", d:"Promotion video for a mobile store announcing its offers."},
+  {yt:"Ny1zRPMr1xU", t:"Clothing Store Offers", d:"Promotion video for a clothing store announcing its offers."},
+  {yt:"hpWYYGTg-jM", t:"Mobile Shop Promotion", d:"AI presenter tells about a mobile shop."},
+  {yt:"hM7dQzg3bwY", t:"Sweet Shop Promotion", d:"AI presenter promotes a sweet (mithai) shop."},
+  {yt:"KtYaetk3n5o", t:"Sweet Shop Ad", d:"Ad for a sweet shop."},
+  {yt:"t-pQmh3Zu4o", t:"Motorcycle & Scooty Showroom", d:"Ad for a motorcycle and scooty center where bikes and scooties are sold."},
+  {yt:"CP5YqWsfY_I", t:"Jewellery Shop AI Ad", d:"AI video ad for a jewellery shop."}
+ ]},
+ {name:"School, Academy & Coaching", videos:[
+  {yt:"XxUpSz9TXnk", t:"Academy for Children", d:"AI presenter explains the facilities and how children are looked after at the academy."},
+  {yt:"YYCtEcs3RhQ", t:"School Promotion", d:"AI presenter promotes a school and its facilities."},
+  {yt:"M9oAK7x-IZk", t:"Academy / School Promotion", d:"Promotion video for an academy or school."},
+  {yt:"e1Rt2WXiE7s", t:"School Ad", d:"Ad for a school."},
+  {yt:"INzsISH_4KY", t:"Coaching Center Promotion", d:"Promotion video for a coaching center."},
+  {yt:"uTFwGBcy2_o", t:"Coaching Center Video", d:"Video for a coaching center."}
+ ]},
+ {name:"Religious Events", videos:[
+  {yt:"esuVtoODX8g", t:"Bhagwat Katha Promotion", d:"AI presenter tells what will happen at the Bhagwat Katha and who will attend."},
+  {yt:"LdMfSqG-myQ", t:"Khatu Shyam Baba Bhajan Sandhya", d:"Ad for a Khatu Shyam Baba bhajan sandhya."}
+ ]},
+ {name:"Hotel & Restaurant", videos:[
+  {yt:"Fi7gKZXoeeA", t:"Hotel Promotion", d:"Promotion video for a hotel."},
+  {yt:"PG4ooXBfQOI", t:"Restaurant Promotion", d:"Promotion video for a restaurant."}
+ ]},
+ {name:"Property & Real Estate", videos:[
+  {yt:"wc3g22YAQXg", t:"New Flats - Pre-booking Offer", d:"AI presenter tells about new flats being built and the discount on pre-booking."},
+  {yt:"FuHXLy4wAFQ", t:"Property Promotion", d:"Promotion video for a property."}
+ ]},
+ {name:"Hospital & Health", videos:[
+  {yt:"oHEy9JI1jO8", t:"Free Eye Checkup Camp", d:"Video for an eye hospital's free eye checkup camp."},
+  {yt:"cj9X_HkLu6s", t:"Hospital Ad", d:"Ad for a hospital."}
+ ]},
+ {name:"City Promotion", videos:[
+  {yt:"Fl485qilI4I", t:"City Promotion", d:"Video promoting a city and what makes it a good place to live."}
+ ]}
 ];
 
 /* PORTFOLIO: cat = category, img = photo ka path, alt = chhota description.

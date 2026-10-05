@@ -211,6 +211,19 @@ nav a{color:#e6e8f2;white-space:nowrap;font-size:14px}nav a:hover{color:#fff}#bu
 @media(max-width:900px){.ct{grid-template-columns:1fr!important}.mp iframe{height:340px!important}}
 @media(max-width:560px){.ad{flex-wrap:wrap}.ad .at{flex:1 1 calc(100% - 60px)}.ad .wb{width:100%;justify-content:center}}
 </style>
+<style>
+.vcg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}@media(min-width:700px){.vcg{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}}
+.vc2{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 26px #1a224414;display:flex;flex-direction:column;transition:.3s}.vc2:hover{transform:translateY(-4px);box-shadow:0 14px 32px #1a224424}
+.vt{position:relative;display:block;width:100%;aspect-ratio:4/5;border:0;cursor:pointer;background-size:238% auto,cover;background-position:center,center;background-repeat:no-repeat}
+.vt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0a1128cc)}.vt b{position:absolute;z-index:1;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:18px;box-shadow:0 6px 18px #0006;transition:.25s}.vt:hover b{transform:scale(1.1)}
+.vt .cn{position:absolute;z-index:1;left:10px;bottom:10px;background:#0a1128d9;color:#fff;font:600 12px Inter,Arial,sans-serif;padding:4px 10px;border-radius:999px}
+.vb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px;flex:1}.vb h3{font:700 17px/1.2 Inter,Arial,sans-serif;text-transform:none}.vb p{color:var(--mut);font-size:13px;line-height:1.4}.sm{margin-top:auto;padding-top:8px;color:var(--red);font:600 14px Inter,Arial,sans-serif;text-decoration:none}.sm:hover{text-decoration:underline}
+#mb{max-height:86vh;overflow:auto}.gh{font:800 26px/1.1 Inter,Arial,sans-serif;text-transform:none;color:#fff;margin-bottom:16px}
+.gg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}.gt{background:none;border:0;color:#fff;text-align:left;cursor:pointer;padding:0}.gp{position:relative;display:block;aspect-ratio:9/16;border-radius:10px;background-size:238% auto,cover;background-position:center;background-repeat:no-repeat;overflow:hidden;border:1px solid #ffffff30}.gp b{position:absolute;left:50%;top:50%;width:42px;height:42px;margin:-21px 0 0 -21px;border-radius:50%;background:var(--red);display:grid;place-items:center;font-size:14px}.gt:hover .gp{border-color:var(--red)}.gt small{display:block;margin-top:8px;font-size:12.5px;line-height:1.3}
+.pv{display:flex;gap:26px;align-items:flex-start;justify-content:center;flex-wrap:wrap}.pl{height:min(76vh,640px);aspect-ratio:9/16;max-width:100%;background:#000;border-radius:10px;overflow:hidden}.pl iframe{width:100%;height:100%;border:0}
+.pi{flex:1;min-width:240px;max-width:380px;color:#fff;display:flex;flex-direction:column;gap:12px;align-items:flex-start}.pi h3{font:800 24px/1.15 Inter,Arial,sans-serif;text-transform:none}.pi p{color:#cfd6ea}
+.bk,.yl{display:inline-flex;align-items:center;min-height:42px;padding:0 18px;border-radius:999px;border:1.5px solid #fff;background:none;color:#fff;font:600 14px Inter,Arial,sans-serif;text-decoration:none;cursor:pointer}.bk:hover,.yl:hover{background:#fff;color:#0a1128}
+</style>
 </head><body>
 <header><div class="wd nav"><a class="logo" href="#home" aria-label="Audio Video Marketing Solution home"><img class="mk" data-logo alt="Audio Video Marketing Solution logo"><div><b>Audio Video</b><small>Marketing Solution</small></div></a>
 <nav aria-label="Main"><ul id="menu"><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#industries">Industries</a></li><li><a href="#portfolio">Portfolio</a></li><li><a href="#audio">Audio Samples</a></li><li><a href="#video">Video Samples</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#contact">Contact</a></li><li><a class="btn r" href="#quote" style="color:#fff;min-height:38px;padding:0 20px;font-size:13px;white-space:nowrap">Get a Quote →</a></li></ul></nav>
@@ -240,7 +253,7 @@ nav a{color:#e6e8f2;white-space:nowrap;font-size:14px}nav a:hover{color:#fff}#bu
 
 <section id="audio"><div class="w"><p class="eye">Audio Samples</p><h2>Hear the Work</h2><p class="lead">Recorded voice-over and advertisement samples. Press play to listen.</p><div class="grid g3" id="ag"></div></div></section>
 
-<section id="video" class="alt"><div class="w"><p class="eye">Video Samples</p><h2>Watch the Work</h2><p class="lead">A few of our advertisement and promo videos. Tap a video to watch.</p><div class="grid g3" id="vg"></div></div></section>
+<section id="video" class="alt"><div class="wd"><p class="eye">Video Samples</p><h2>Watch the Work</h2><p class="lead">Choose a category to watch our work. Tap "See more" to see every video of that category.</p><div class="vcg" id="vcg"></div></div></section>
 
 <section id="pricing"><div class="w"><p class="eye">Pricing</p><h2>Clear, Confirmed Rates</h2><p class="lead">Audio and video packages at fixed prices. Anything else — custom quote.</p><div class="grid g4" id="pg2"></div></div></section>
 
@@ -307,9 +320,14 @@ if(!a.au){a.au=new Audio(a.src);a.au.ontimeupdate=()=>c.querySelector(".bar i").
 if(a.au.paused){a.au.play();b.textContent="❚❚";curA={i:b.dataset.i,au:a.au,b}}else{a.au.pause();b.textContent="▶"}};
 // Video
 const YID=s=>{const m=String(s).match(/(?:v=|youtu\.be\/|shorts\/|embed\/)([\w-]{11})/);return m?m[1]:s};
-VIDEO.forEach(v=>{if(v.yt){if(/shorts\//.test(v.yt))v.vertical=true;v.yt=YID(v.yt)}});
-$("#vg").innerHTML=VIDEO.map((v,i)=>`<div class="vc rv"><button class="vid" data-i="${i}" aria-label="Play ${v.t}" style="${(v.thumb||v.yt)?`background:#000 url(${v.thumb||"https://i.ytimg.com/vi/"+v.yt+"/hqdefault.jpg"}) center 28%/cover`:""}"><b>▶</b><small>${v.dur}</small></button><h3>${v.t}</h3><p>${v.c}</p></div>`).join("");
-$("#vg").onclick=e=>{const b=e.target.closest(".vid");if(!b)return;const v=VIDEO[b.dataset.i];openM(v.yt?`<iframe style="${v.vertical?"height:80vh;width:min(100%,calc(80vh*9/16));margin:auto;display:block":"width:100%;aspect-ratio:16/9"};border:0" src="https://www.youtube.com/embed/${v.yt}?autoplay=1&rel=0&playsinline=1" allow="autoplay;encrypted-media" allowfullscreen title="${v.t}"></iframe>`:v.src?`<video src="${v.src}" controls autoplay playsinline></video>`:`<div class="box"><div><h3 style="font-size:34px">${v.t}</h3><p>Video coming soon — add a file in assets/video</p></div></div>`)};
+for(let i=VIDEO_CATEGORIES.length-1;i>=0;i--)if(!VIDEO_CATEGORIES[i].videos||!VIDEO_CATEGORIES[i].videos.length)VIDEO_CATEGORIES.splice(i,1);
+VIDEO_CATEGORIES.forEach(c=>c.videos.forEach(v=>v.yt=YID(v.yt)));
+const TH=id=>`background-image:url(https://i.ytimg.com/vi/${id}/hqdefault.jpg),linear-gradient(160deg,#27345e,#0f1733)`;
+const player=(v,ci)=>`<div class="pv"><div class="pl"><iframe src="https://www.youtube.com/embed/${v.yt}?autoplay=1&rel=0&playsinline=1" allow="autoplay;encrypted-media" allowfullscreen title="${v.t}"></iframe></div><div class="pi"><h3>${v.t}</h3><p>${v.d||""}</p>${VIDEO_CATEGORIES[ci].videos.length>1?`<button class="bk" data-c="${ci}">← All ${VIDEO_CATEGORIES[ci].name} videos</button>`:""}<a class="yl" href="https://www.youtube.com/watch?v=${v.yt}" target="_blank" rel="noopener">Watch on YouTube</a></div></div>`;
+const gallery=ci=>{const c=VIDEO_CATEGORIES[ci];return `<h3 class="gh">${c.name}</h3><div class="gg">${c.videos.map((v,j)=>`<button class="gt" data-c="${ci}" data-v="${j}" aria-label="Play ${v.t}"><span class="gp" style="${TH(v.yt)}"><b>▶</b></span><small>${v.t}</small></button>`).join("")}</div>`};
+$("#vcg").innerHTML=VIDEO_CATEGORIES.map((c,ci)=>{const v=c.videos[0],n=c.videos.length;return `<article class="vc2 rv"><button class="vt" data-c="${ci}" data-v="0" style="${TH(v.yt)}" aria-label="Play ${v.t}"><b>▶</b><span class="cn">${n} video${n>1?"s":""}</span></button><div class="vb"><h3>${c.name}</h3><p>${v.t}</p>${n>1?`<a class="sm" href="#" data-c="${ci}">See more →</a>`:""}</div></article>`}).join("");
+$("#vcg").onclick=e=>{const t=e.target.closest(".vt"),s=e.target.closest(".sm");if(s){e.preventDefault();openM(gallery(+s.dataset.c))}else if(t)openM(player(VIDEO_CATEGORIES[+t.dataset.c].videos[+t.dataset.v],+t.dataset.c))};
+$("#mb").addEventListener("click",e=>{const g=e.target.closest(".gt"),b=e.target.closest(".bk");if(g)$("#mb").innerHTML=player(VIDEO_CATEGORIES[+g.dataset.c].videos[+g.dataset.v],+g.dataset.c);else if(b)$("#mb").innerHTML=gallery(+b.dataset.c)});
 // Modal
 const md=$("#md");function openM(h){$("#mb").innerHTML=h;md.classList.add("show");md.querySelector(".x").focus()}
 function closeM(){md.classList.remove("show");$("#mb").innerHTML=""}
