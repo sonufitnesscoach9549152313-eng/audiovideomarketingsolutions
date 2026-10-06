@@ -7,6 +7,9 @@ const AUDIO=[
  {t:"Audio Sample 2", c:"Advertisement", src:"assets/audio/audio-sample-2.mp3", dur:"5:48"}
 ];
 
+/* FORM_KEY: Web3Forms ki access key. Customer form bharta hai to details aapke email par aati hain. (Ye key public hoti hai, chhupane ki zaroorat nahi.) */
+const FORM_KEY="bc5c2a7c-0a02-44d5-9f7c-0f069a49cb96";
+
 /* MAP: website par live Google map (zoom + move hota hai).
    query = address jo map par dhoondhna hai, type = "h" (satellite+naam) ya "m" (normal map), zoom = 1 se 20.
    Pin galat jagah dikhe to exact map ka link embed:"..." mein paste karo
